@@ -18,7 +18,7 @@ angular.module('shortly', [
     .when('/links', {
       templateUrl: 'app/links/links.html',
       controller: 'LinksController'
-    })
+    });
     // Your code here
 
     // $locationProvider.html5Mode(true);
