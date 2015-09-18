@@ -5,7 +5,7 @@ angular.module('shortly', [
   'shortly.auth',
   'ngRoute'
 ])
-.config(function ($routeProvider, $httpProvider) {
+.config(function ($routeProvider, $httpProvider, $locationProvider) {
   $routeProvider
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
@@ -14,8 +14,14 @@ angular.module('shortly', [
     .when('/signup', {
       templateUrl: 'app/auth/signup.html',
       controller: 'AuthController'
-    });
+    })
+    .when('/links', {
+      templateUrl: 'app/links/links.html',
+      controller: 'LinksController'
+    })
     // Your code here
+
+    // $locationProvider.html5Mode(true);
 
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
