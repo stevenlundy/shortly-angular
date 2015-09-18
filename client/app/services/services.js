@@ -10,7 +10,7 @@ angular.module('shortly.services', [])
       return resp.data;
     });
   };
-  
+
   var addLink = function (url) {
     return $http({
       method: 'POST',
