@@ -11,20 +11,22 @@ angular.module('shortly.services', [])
     });
   };
 
-  var addLink = function (url) {
+  var addNewLink = function (url) {
+    console.log(url);
     return $http({
       method: 'POST',
       url: '/api/links',
       data: {url: url}
     }).
     then(function (resp) {
+      console.log(data);
       return resp.data;
     });
   };
 
   return {
     getLinks: getLinks,
-    addLink: addLink
+    addNewLink: addNewLink
   };
 })
 .factory('Auth', function ($http, $location, $window) {

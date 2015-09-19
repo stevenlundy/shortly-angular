@@ -8,8 +8,9 @@ angular.module('shortly.shorten', [])
   $scope.link.url = '';
   $scope.error = '';
 
-  $scope.addLink = function () {
-    Links.addLink($scope.link.url)
+  $scope.addNewLink = function () {
+    console.log($scope.link.url);
+    Links.addNewLink($scope.link.url)
       .then(function (link) {
         $scope.link.url = '';
         $scope.error = '';
@@ -21,7 +22,6 @@ angular.module('shortly.shorten', [])
   };
 
   $scope.isValidUrl = function () {
-    console.log($scope.link.url);
     return $scope.link.url.match(rValidUrl);
   };
 });
