@@ -5,7 +5,7 @@
         <input class='text' type='text' name='url' ng-model='link.url' >
         <input type='submit' value='Shorten' ng-disabled='!isValidUrl() || addLink.url.$pristine'>
     </form>
-    <img class='spinner' src='/spiffygif_46x46.gif'>
+    <img class='spinner' src='/assets/spiffygif_46x46.gif' ng-show='pending'>
     <div class='message' ng-show='!isValidUrl()' ng-hide='addLink.url.$pristine'>Please enter a valid url.</div>
   </div>
 </div>
