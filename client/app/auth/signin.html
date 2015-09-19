@@ -1,9 +1,13 @@
 <div id='signin'>
   <h1>signin</h1>
   <form name="signinForm" ng-submit='signin()'>
-    <input type='text'ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
-    <button>signin</button>
+    <input name = 'username' type='text' ng-model='user.username' required pattern="\w{6,20}" ng-model-options="{updateOn: 'mousedown blur'}">
+    <input name = 'password' type='password' ng-model='user.password' required pattern=".{8,20}" ng-model-options="{updateOn: 'mousedown blur'}">
+    <button ng-disabled='signinForm.username.$invalid || signinForm.password.$invalid'>signin</button>
   </form>
+  <div class='message' ng-hide='signinForm.username.$valid || signinForm.username.$pristine'>User name may only contain 6-20 alphanumeric characters.
+  </div>
+   <div class='message' ng-hide='signinForm.password.$valid || signinForm.password.$pristine'>Password must be at least 8 characters.
+  </div>
   <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
 </div>

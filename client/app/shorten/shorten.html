@@ -1,11 +1,12 @@
+
 <div id='container'>
-  <div >
-    <form>
-        <input class='text' type='text' name='url' ng-model='link.url'>
-        <input type='submit' value='Shorten' ng-click='addLink()'>
+  <div class='creator'>
+    <form novalidate name='addLink'>
+        <input class='text' type='text' name='url' ng-model='link.url' >
+        <input type='submit' value='Shorten' ng-click='addLink()' ng-disabled='!isValidUrl() || addLink.url.$pristine'>
     </form>
     <img class='spinner' src='/spiffygif_46x46.gif'>
-    <div class='message'>{{error}}</div>
+    <div class='message' ng-show='!isValidUrl()' ng-hide='addLink.url.$pristine'>Please enter a valid url.</div>
   </div>
 </div>
 
