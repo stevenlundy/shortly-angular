@@ -55,9 +55,9 @@ h1 {
 
 .link {
   clear: both;
+  overflow: hidden;
   margin-bottom: 5px;
   padding: 5px;
-  min-height: 50px;
 }
 
 .link:hover {
@@ -93,6 +93,51 @@ h1 {
   margin-left: 55px;
 }
 
+.link.ng-enter {
+  transition:0.5s linear all;
+  opacity:0;
+}
+
+.link.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.link.ng-leave {
+  transition:0.5s linear all;
+  opacity:1;
+  max-height: 60px;
+}
+.link.ng-leave.ng-leave-active {
+  opacity:0;
+  max-height: 0;
+}
+
+.link.animate-repeat.ng-move {
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+    opacity:0;
+}
+
+.link.animate-repeat.ng-move.ng-move-active {
+    opacity:1;
+}
+
+/**
+ * Stagger Leave (hide) animation
+ */
+.link.animate-repeat.ng-leave-stagger {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+/**
+ * Stagger ENTER ANIMATION
+ */
+.link.animate-repeat.ng-enter-stagger {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
 form {
   margin: 10px;
 }
@@ -113,6 +158,9 @@ input[type=url]:focus {
   outline: none;
 }
 
+input.ng-dirty.ng-invalid {
+  color: red
+}
 
 .error {
   border: red solid 4px;
@@ -144,4 +192,14 @@ input[type=url]:focus {
 .creator .message {
   clear: both;
 }
+
+.message.ng-hide {
+  transition:0.5s linear all;
+  opacity:0;
+}
+.message.ng-show {
+  transition:0.5s linear all;
+  opacity:1;
+}
+
 

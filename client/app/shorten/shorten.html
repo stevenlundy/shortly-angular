@@ -2,11 +2,11 @@
 <div id='container'>
   <div class='creator'>
     <form name='addLink' ng-submit='addNewLink()'>
-        <input class='text' type='text' name='url' ng-model='link.url' >
-        <input type='submit' value='Shorten' ng-disabled='!isValidUrl() || addLink.url.$pristine'>
+        <input class='text' type='text' name='url' ng-model='link.url' required pattern='^(?!mailto:)(?:(?:https?|ftp):\/\/)?(?:\S+(?::\S*)?@)?(?:(?:(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[0-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))|localhost)(?::\d{2,5})?(?:\/[^\s]*)?'>
+        <input type='submit' value='Shorten' ng-disabled='addLink.url.$invalid || addLink.url.$pristine'>
     </form>
     <img class='spinner' src='/assets/spiffygif_46x46.gif' ng-show='pending'>
-    <div class='message' ng-show='!isValidUrl()' ng-hide='addLink.url.$pristine'>Please enter a valid url.</div>
+    <div class='message' ng-show='addLink.url.$invalid' ng-hide='addLink.url.$pristine'>Please enter a valid url.</div>
   </div>
 </div>
 

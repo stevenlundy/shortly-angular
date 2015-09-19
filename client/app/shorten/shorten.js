@@ -1,4 +1,4 @@
-angular.module('shortly.shorten', [])
+angular.module('shortly.shorten', ['ngAnimate'])
 
 .controller('ShortenController', function ($scope, $location, Links) {
 
